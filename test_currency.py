@@ -1,15 +1,18 @@
 from currency import *
 
 
-rate_list =  [("USD", "EUR", 0.74), ("EUR", "JPY", 145.949)]
+rate_list =  [("USD", "EUR", 2.003), ("EUR", "JPY", 300.00)]
+
 
 def test_converter():
-    assert convert(rate_list, 1, "USD", "EUR") == 0.74
-    assert convert(rate_list, 1, "USD", "USD") == 1
-    assert convert(rate_list, 1, "EUR", "USD") == 1.35
-    assert convert(rate_list, 1, "EUR", "JPY") == 145.95
-    # assert convert(rate_list, 1)
+    assert convert(rate_list, 1, "USD", "EUR") == 2.00
+    assert convert(rate_list, 1, "USD", "USD") == 1.00
+    assert convert(rate_list, 1, "EUR", "USD") == 0.50
+    assert convert(rate_list, 1, "EUR", "JPY") == 300.00
+    assert convert(rate_list, 1, "JPY", "EUR") == 0.00
+    assert convert(rate_list, 1, "JPY", "JPY") == 1
+
 
 def test_rate_finder():
-    assert rate_finder(rate_list, "USD", "USD") == False
-    assert rate_finder(rate_list, "USD", "EUR") == ("USD", "EUR", 0.74)
+    assert rate_finder(rate_list, "USD", "USD") == None
+    assert rate_finder(rate_list, "USD", "EUR") == ("USD", "EUR", 2.003)
