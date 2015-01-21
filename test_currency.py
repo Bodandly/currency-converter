@@ -14,5 +14,6 @@ def test_converter():
 
 
 def test_rate_finder():
-    assert rate_finder(rate_list, "USD", "USD") == None
     assert rate_finder(rate_list, "USD", "EUR") == ("USD", "EUR", 2.003)
+    assert rate_finder(rate_list, "EUR", "USD") == ("USD", "EUR", 2.003)
+    assert rate_finder(rate_list, "JPY", "EUR") == ("EUR", "JPY", 300.00)

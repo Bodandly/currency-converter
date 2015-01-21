@@ -1,5 +1,10 @@
 
-rate_list =  [("USD", "EUR", 0.74), ("EUR", "JPY", 145.949)]
+rate_list =  [("USD", "EUR", 0.74),
+              ("EUR", "JPY", 145.949),
+              ("GBP", "JPY", 177.28),
+              ("THB", "AUD", 0.037),
+              ("AUD", "GBP", 0.544)]
+
 
 
 def convert(rates, value, begin, to):
@@ -20,8 +25,6 @@ def convert(rates, value, begin, to):
 def rate_finder(rates, begin, to):
     """From the list of tuples finds the correct tuple to use, for
     conversion."""
-    if begin == to:
-        return None
     for entry in rates:
         if begin in entry and to in entry:
             return entry
